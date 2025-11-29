@@ -2,27 +2,30 @@
 Intercept the authentication tokens needed to hijack the user's session. 
 
 ## Build & run the containers
-- **sudo apt update**
 - Install Docker (Linux, Windows)
-  **sudo apt install -y docker.io**
 - Start docker (bij boot)
-  **sudo systemctl enable docker --now**
 - Download/clone this repo (wget, git, ...)
 - Build/start Docker containers
-  **sudo docker-compose up --build -d --force-recreate --remove-orphans**
 - verify if docker containers are running
-  **sudo docker ps**
 
+```bash
+sudo apt update
+sudo apt install -y docker.io
+sudo systemctl enable docker --now
+sudo docker-compose up --build -d --force-recreate --remove-orphans
+sudo docker ps
+```
 You will now have two Docker Containers:
 - Evilginx Lab (PXL-EVIL)
 - Apache webserver (PXL)
 
 ## Edit locahost
-- Add lines to hosts file:
-  
+- Add lines to hosts file (/etc/hosts)
+
+```bash
 	172.18.0.20 	pxl.local login.pxl.local
 	172.18.0.10	  fake.local login.fake.local
-  **sudo nano /etc/hosts**
+```
 
 The 'normal' Apache site should work at: https://login.pxl.local!
 
