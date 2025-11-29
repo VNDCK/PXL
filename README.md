@@ -23,11 +23,16 @@ You will now have two Docker Containers:
 - Add lines to hosts file (/etc/hosts)
 
 ```bash
-	172.18.0.20 	pxl.local login.pxl.local
-	172.18.0.10	  fake.local login.fake.local
+	::1 	pxl.local login.pxl.local
+	::1 	fake.local login.fake.local
+	127.0.0.1 pxl.local login.pxl.local
+	172.0.0.1 fake.local login.fake.local
+	(172.18.0.20 	pxl.local login.pxl.local)
+	(172.18.0.10	  	fake.local login.fake.local)
 ```
 
-The 'normal' Apache site should work at: https://login.pxl.local!
+The 'normal' Apache site should work at: https://login.pxl.local:8443
+Try to log-on (see login-config.php)
 
 ## Evilginx
 - Connect to Evilginix container 
@@ -47,9 +52,11 @@ The 'normal' Apache site should work at: https://login.pxl.local!
 	
 : phishlets enable pxl
 : lures create pxl
-: lures
 : lures get-url 0
 ```
+
+## Test
+- Login, test!
 
 ## Troubleshooting
 - Start Evilginx with Debug: **./evilginx2 -developer -debug**
