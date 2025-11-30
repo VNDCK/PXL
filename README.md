@@ -58,11 +58,12 @@ sudo docker exec -it /PXL-EVIL /bin/bash
 
 ## Test
 - Login, test!
+- Inject Cookie using StorageAce
 
 ```bash
 sessions
 ```
-## Inject Cookie using StorageAce
+
 
 ## Troubleshooting
 - Start Evilginx with Debug: **./evilginx2 -developer -debug**
