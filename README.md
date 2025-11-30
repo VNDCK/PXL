@@ -34,10 +34,13 @@ Try to log-on (see login-config.php)
 
 ## Evilginx
 - Connect to Evilginix container 
-	**sudo docker exec -it /PXL-EVIL /bin/bash**
 - Start Evilginx in developer mode (required for certificates)
-  **./evilginx2 -developer**
-                                        
+
+```bash
+sudo docker exec -it /PXL-EVIL /bin/bash
+./evilginx2 -developer
+```
+
 ## Config Evilginx
 ```bash  
 : config domain fake.local
@@ -55,6 +58,11 @@ Try to log-on (see login-config.php)
 
 ## Test
 - Login, test!
+
+```bash
+sessions
+```
+## Inject Cookie using StorageAce
 
 ## Troubleshooting
 - Start Evilginx with Debug: **./evilginx2 -developer -debug**
