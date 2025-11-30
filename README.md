@@ -23,12 +23,10 @@ You will now have two Docker Containers:
 - Add lines to hosts file (/etc/hosts)
 
 ```bash
-	::1 	pxl.local login.pxl.local
-	::1 	fake.local login.fake.local
+	127.0.0.1 fake.local login.fake.local
+	::1 fake.local login.fake.local
 	127.0.0.1 pxl.local login.pxl.local
-	172.0.0.1 fake.local login.fake.local
-	(172.18.0.20 	pxl.local login.pxl.local)
-	(172.18.0.10	  	fake.local login.fake.local)
+	::1 pxl.local login.pxl.local
 ```
 
 The 'normal' Apache site should work at: https://login.pxl.local:8443
@@ -36,10 +34,13 @@ Try to log-on (see login-config.php)
 
 ## Evilginx
 - Connect to Evilginix container 
-	**sudo docker exec -it /PXL-EVIL /bin/bash**
 - Start Evilginx in developer mode (required for certificates)
-  **./evilginx2 -developer**
-                                        
+
+```bash
+sudo docker exec -it /PXL-EVIL /bin/bash
+./evilginx2 -developer
+```
+
 ## Config Evilginx
 ```bash  
 : config domain fake.local
@@ -57,6 +58,11 @@ Try to log-on (see login-config.php)
 
 ## Test
 - Login, test!
+
+```bash
+sessions
+```
+## Inject Cookie using StorageAce
 
 ## Troubleshooting
 - Start Evilginx with Debug: **./evilginx2 -developer -debug**
