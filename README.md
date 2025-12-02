@@ -43,10 +43,17 @@ sudo docker exec -it /PXL-EVIL /bin/bash
 
 ## Config Evilginx
 ```bash  
-: help
-: Configure domain
-: Configure phishlet
-: Configure lure
+: config domain fake.local
+: config ipv4 172.18.0.10
+: phishlets hostname pxl fake.local
+
+: phishlets get-hosts pxl
+	172.18.0.10 login.fake.local
+	172.18.0.10 fake.local
+	
+: phishlets enable pxl
+: lures create pxl
+: lures get-url 0
 ```
 
 ## Test
