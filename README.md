@@ -48,7 +48,6 @@ sudo docker exec -it /PXL-EVIL /bin/bash
 : phishlets hostname pxl fake.local
 
 : phishlets get-hosts pxl
-	172.18.0.10 login.fake.local
 	172.18.0.10 fake.local
 	
 : phishlets enable pxl
